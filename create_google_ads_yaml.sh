@@ -26,7 +26,7 @@ prompt_and_validate() {
         if [[ "$input" =~ [$special_char] ]]; then
             echo "Invalid input: '$special_char' characters are not allowed. Please try again."
         else
-            eval $var_name="'$input'"
+            eval $var_name="$input"
             break
         fi
     done
