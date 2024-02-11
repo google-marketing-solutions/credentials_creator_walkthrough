@@ -6,7 +6,9 @@ Welcome to a repository dedicated to guiding users through the process of creati
 
 This repository contains a comprehensive, step-by-step tutorial that will help you navigate the process of generating OAuth credentials in GCP. These credentials are crucial for authenticating and authorizing access to Google services via APIs.
 
-**Prerequisites**: Before you begin, ensure you have a Google Cloud account.
+**Prerequisites**: 
+- Before you begin, ensure you have a Google Cloud account.
+- Check with your solution developer which API's and scopes you need for the solution.  
 
 ## The Walkthrough Tutorial
 
