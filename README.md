@@ -12,7 +12,7 @@ This repository contains a comprehensive, step-by-step tutorial that will help y
 
 ## The Walkthrough Tutorial
 
-**Click here to enter the**: [Step-by-Step OAuth Credentials Tutorial in GCP](https://console.cloud.google.com/?cloudshell=true&cloudshell_git_repo=https://github.com/google/credentials_creator_walkthrough&cloudshell_tutorial=walkthrough.md)
+**Click here to enter the**: [Step-by-Step OAuth Credentials Tutorial in GCP](https://console.cloud.google.com/?cloudshell=true&cloudshell_git_repo=https://github.com/google-marketing-solutions/credentials_creator_walkthrough&cloudshell_tutorial=walkthrough.md)
 
 ## What You'll Learn
 The tutorial covers the following key topics:
