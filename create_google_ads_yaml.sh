@@ -26,6 +26,7 @@ prompt_and_validate() {
         if [[ "$input" =~ [$special_char] ]]; then
             echo "Invalid input: '$special_char' characters are not allowed. Please try again."
         else
+            input=$(echo "$input" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
             eval $var_name="$input"
             break
         fi
@@ -33,6 +34,12 @@ prompt_and_validate() {
 }
 
 # Prompt for variables with specific validations
+
+# Check if google-ads.yaml already exists
+if [ -f google-ads.yaml ]; then
+    echo "Warning: google-ads.yaml already exists and will be overwritten."
+    read -p "Press Enter to continue or Ctrl+C to cancel..."
+fi
 
 prompt_and_validate "Enter client secret" client_secret "\""
 prompt_and_validate "Enter client id" client_id "\""
@@ -47,11 +54,6 @@ else
     developer_token="Developer token missing"
 fi
 
-# Check if google-ads.yaml already exists
-if [ -f google-ads.yaml ]; then
-    echo "Warning: google-ads.yaml already exists and will be overwritten."
-    read -p "Press Enter to continue or Ctrl+C to cancel..."
-fi
 
 # Create or overwrite the YAML file
 {
