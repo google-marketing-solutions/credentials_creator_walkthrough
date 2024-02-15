@@ -64,14 +64,6 @@ If you do not see an API you need to enable in the list above, you can manually 
 3. Browse for the API's needed and enable them.
     
 
-
-## Switch Off Ephemeral Mode
-
-Now, let's switch off your shell's ephemeral mode if its operating.
-
-Click <walkthrough-spotlight-pointer spotlightId="cloud-shell-more-button" target="cloudshell" title="Show me where">**More**</walkthrough-spotlight-pointer> and look for the `Ephemeral Mode` option. If it is turned on turn it off. This allows the dashboard code to persist across sessions.
-
-
 ## Configure OAuth Consent Screen
 
 An authorization token is needed for the dashboard to communicate with Google Ads.
