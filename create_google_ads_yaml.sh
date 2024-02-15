@@ -33,7 +33,7 @@ prompt_and_validate() {
     done
 }
 
-# Prompt for variables with specific validations
+
 
 # Check if google-ads.yaml already exists
 if [ -f google-ads.yaml ]; then
@@ -41,19 +41,26 @@ if [ -f google-ads.yaml ]; then
     read -p "Press Enter to continue or Ctrl+C to cancel..."
 fi
 
+# Prompt for variables with specific validations
 prompt_and_validate "Enter client secret" client_secret "\""
 prompt_and_validate "Enter client id" client_id "\""
 prompt_and_validate "Enter refresh token" refresh_token "\""
 prompt_and_validate "Enter your customer id (MCC or cid in Google Ads) " customer_id "-"
 
-# Check for developer token
-read -p "Do you have a developer token? (y/n): " has_developer_token
-if [ "$has_developer_token" == "y" ]; then
-    prompt_and_validate "Enter developer token" developer_token "\""
-else
-    developer_token="Developer token missing"
-fi
-
+# Check for developer token, if it doesn't exist at the moment, the file will be created without it. 
+while true; do
+    read -p "Do you have a developer token at the moment? If not, you can add it manually to the file in the future. (y/n): " has_developer_token
+    if [ "$has_developer_token" == "y" ]; then
+        prompt_and_validate "Enter developer token" developer_token "\""
+        break # Valid input, exit loop
+    elif [ "$has_developer_token" == "n" ]; then
+        developer_token="Developer token missing"
+        break # Valid input, exit loop
+    else
+        echo "Please try again."
+        # The loop will continue, asking the user again
+    fi
+done
 
 # Create or overwrite the YAML file
 {
