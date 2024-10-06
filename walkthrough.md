@@ -57,9 +57,9 @@ If you do not see an API you need to enable in the list above, you can manually 
 
 1.  Go to the **APIs & Services > Enabled APIs & services** page in the Cloud
     Console. You can use the button below to find the section.
+2. 
+    <walkthrough-path-nav path="/apis/credentials">APIs & Services>Enabled APIs & services</walkthrough-path-nav>
 
-    <walkthrough-menu-navigation sectionId="API_SECTION;metropolis_enabled_apis_and_services"></walkthrough-menu-navigation>
-    
 2. Click <walkthrough-spotlight-pointer cssSelector=".mdc-button.mat-mdc-button.gmat-mdc-button-with-prefix.mat-primary.mat-mdc-button-base.gmat-mdc-button.cm-button">**Enable API's and Services**</walkthrough-spotlight-pointer>.
 3. Browse for the API's needed and enable them.
     
@@ -71,7 +71,7 @@ An authorization token is needed for the dashboard to communicate with Google Ad
 1.  Go to the **APIs & Services > OAuth consent screen** page in the Cloud
     Console. You can use the button below to find the section.
 
-    <walkthrough-menu-navigation sectionId="API_SECTION;oauth_api_consent"></walkthrough-menu-navigation>
+    <walkthrough-path-nav path="/apis/credentials/consent">OAuth consent screen</walkthrough-path-nav>
 
 1.  Choose **External** as the user type for your application.
 
