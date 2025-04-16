@@ -12,7 +12,6 @@ In this walkthrough, you'll generate OAuth credentials in preparation for the de
 <walkthrough-tutorial-difficulty difficulty="2"></walkthrough-tutorial-difficulty>
 <walkthrough-tutorial-duration duration="10"></walkthrough-tutorial-duration>
 
-
 ## Google Cloud Project Setup
 
 GCP organizes resources into projects. This allows you to
@@ -30,26 +29,25 @@ For details, see
 
 Enable required API's for this project. Choose the necessary API's to the solution you're deploying, so that they're incorporated in the credentials you will generate in the next step.
 
-### Google Ads API 
+### Google Ads API
 
 <walkthrough-enable-apis apis="googleads.googleapis.com">
 </walkthrough-enable-apis>
 
-### Big Query API 
+### Big Query API
 
 <walkthrough-enable-apis apis="bigquery.googleapis.com">
 </walkthrough-enable-apis>
 
-### Google Drive API 
+### Google Drive API
 
 <walkthrough-enable-apis apis="drive.googleapis.com">
 </walkthrough-enable-apis>
 
-### Google Sheets API 
+### Google Sheets API
 
 <walkthrough-enable-apis apis="sheets.googleapis.com">
 </walkthrough-enable-apis>
-
 
 ### Additional API's:
 
@@ -57,87 +55,73 @@ If you do not see an API you need to enable in the list above, you can manually 
 
 1.  Go to the **APIs & Services > Enabled APIs & services** page in the Cloud
     Console. You can use the button below to find the section.
-2. 
-    <walkthrough-path-nav path="/apis/credentials">APIs & Services>Enabled APIs & services</walkthrough-path-nav>
+2.  <walkthrough-path-nav path="/apis/credentials">APIs & Services>Enabled APIs & services</walkthrough-path-nav>
 
-2. Click <walkthrough-spotlight-pointer cssSelector=".mdc-button.mat-mdc-button.gmat-mdc-button-with-prefix.mat-primary.mat-mdc-button-base.gmat-mdc-button.cm-button">**Enable API's and Services**</walkthrough-spotlight-pointer>.
-3. Browse for the API's needed and enable them.
-    
-    
+3.  Click <walkthrough-spotlight-pointer cssSelector=".mdc-button.mat-mdc-button.gmat-mdc-button-with-prefix.mat-primary.mat-mdc-button-base.gmat-mdc-button.cm-button">**Enable API's and Services**</walkthrough-spotlight-pointer>.
+4.  Browse for the API's needed and enable them.
+
 ## Configure OAuth Consent Screen
 
-An authorization token is needed for the dashboard to communicate with Google Ads.
+An authorization token is needed to communicate with Google Ads.
 
-1.  Go to the **APIs & Services > OAuth consent screen** page in the Cloud
-    Console. You can use the button below to find the section.
+1.  Go to:
+    <walkthrough-path-nav path="/auth/overview">**APIs & Services > OAuth Overview**</walkthrough-path-nav>
 
-    <walkthrough-path-nav path="/apis/credentials/consent">OAuth consent screen</walkthrough-path-nav>
+1.  Click on "Get started".
 
-1.  Choose **External** as the user type for your application.
+1.  Under _App information_, enter the **Application name** you want to display.
+    For example, the name of the solution you are aiming to deploy in this project.
 
-    *   If you have an organization for your application, select **Internal**.
-    *   If you don't have an organization configured for your application,
-        select **External**.
+1.  For the **Support email** dropdown menu, select any email address that you have access to.
+
+1.  In the Next section (Audience):
+
+    - If you have an organization for your application, select **Internal**.
+    - If you don't have an organization configured for your application,
+      select **External**.
+
+1.  Under **Developer contact information**, enter a valid email address and continue to accept the Terms.
 
 1.  Click
     <walkthrough-spotlight-pointer cssSelector="button[type='submit']">**Create**</walkthrough-spotlight-pointer>
     to continue.
 
-1.  Under *App information*, enter the **Application name** you want to display.
-    You enter the name of the solution you're deploying as the application name.
+Click<walkthrough-spotlight-pointer cssSelector=".cfc-message-actions > a.cm-button[href^='/auth/clients/create']">**Create OAuth client**</walkthrough-spotlight-pointer>
 
-1.  For the **Support email** dropdown menu, select the email address you want
-    to display as a public contact. This email address must be your email
-    address, or a Google Group you own.
-2.  Under **Developer contact information**, enter a valid email address.
+## Creating OAuth Credentials
 
-Click
-    <walkthrough-spotlight-pointer cssSelector=".cfc-stepper-step-continue-button">**Save
-    and continue**</walkthrough-spotlight-pointer>.
+1. You should land in the following section:
+   <walkthrough-path-nav path="/auth/clients/create">**Clients**</walkthrough-path-nav>
+
+1. Under
+   <walkthrough-spotlight-pointer cssSelector="[formcontrolname='typeControl']">**Application
+   type**</walkthrough-spotlight-pointer>, select **Web application**.
+
+1. Add a
+   <walkthrough-spotlight-pointer cssSelector="[formcontrolname='displayName']">**Name**</walkthrough-spotlight-pointer>
+   for your OAuth client ID.
+
+1. Click <walkthrough-spotlight-pointer locator="semantic({group 'Authorized redirect URIs'} {button 'Add URI'})">Authorized redirect URI</walkthrough-spotlight-pointer>
+   and copy the following:
+
+   ```
+   https://developers.google.com/oauthplayground
+   ```
+
+1. Click **Create**. Your OAuth client ID and client secret are generated and
+   displayed on the OAuth client window.
+
+1. Copy the **client_id** and **client_secret** as you will need those in a moment. (if you only see client_id, press OK and then find both id and secret after pressing the "edit" icon)
 
 ## Add Sensitive Scopes to Consent Screen
 
-Scope the consent screen for necessary API's to the solution you're deploying. 
-For example: Google Ads API, BigQuery API, etc. 
+Scope the consent screen for necessary API's to the solution you're deploying.
+For example: Google Ads API, BigQuery API, etc.
 
 1. Click <walkthrough-spotlight-pointer locator="semantic({button 'Add or remove scopes'})">Add or remove scopes</walkthrough-spotlight-pointer>
 1. Now in <walkthrough-spotlight-pointer locator="semantic({combobox 'Filter'})">Enter property name or value</walkthrough-spotlight-pointer> search for the API you need, check the box for the first option to choose it.
 1. Do the same for all API's needed.
 1. Click <walkthrough-spotlight-pointer locator="text('Update')">Update</walkthrough-spotlight-pointer>
-
-## Creating OAuth Credentials
-
-Create the credentials that are needed for generating a refresh token.
-
-Make sure to **copy each of the credentials you create**, you will need them later.
-
-1.  On the APIs & Services page, click the
-    <walkthrough-spotlight-pointer cssSelector="#cfctest-section-nav-item-metropolis_api_credentials">**Credentials**</walkthrough-spotlight-pointer>
-    tab.
-
-1.  On the
-    <walkthrough-spotlight-pointer cssSelector="[id$=action-bar-create-button]" validationPath="/apis/credentials">**Create
-    credentials**</walkthrough-spotlight-pointer> drop-down list, select **OAuth
-    client ID**.
-1.  Under
-    <walkthrough-spotlight-pointer cssSelector="[formcontrolname='typeControl']">**Application
-    type**</walkthrough-spotlight-pointer>, select **Web application**.
-
-1.  Add a
-    <walkthrough-spotlight-pointer cssSelector="[formcontrolname='displayName']">**Name**</walkthrough-spotlight-pointer>
-    for your OAuth client ID.
-
-1. Click <walkthrough-spotlight-pointer locator="semantic({group 'Authorized redirect URIs'} {button 'Add URI'})">Authorized redirect URI</walkthrough-spotlight-pointer>
-   and copy the following:
-   ```
-   https://developers.google.com/oauthplayground
-   ```
-
-1.  Click **Create**. Your OAuth client ID and client secret are generated and
-    displayed on the OAuth client window.
-
-After generating the client_id and client_secret keep the confirmation screen open and go to the next step.
-
 
 ## Generate Refresh Token
 
@@ -147,12 +131,11 @@ After generating the client_id and client_secret keep the confirmation screen op
 4. After selecting all requiered scopes, click the blue **Authorize APIs** button on the left-hand pane. ![Authorize APIs](https://services.google.com/fh/files/misc/authorize_apis.png)
 
    If you are prompted to authorize access, please choose your Google account that has access to Google Ads and approve.
-   
+
 5. Now, click the new blue button **Exchange authorization code for tokens** ![Exchange authorization code for tokens](https://services.google.com/fh/files/misc/exchange_authorization_code_for_token.png)
-6. Finally, in the middle of the screen you'll see your refresh token on the last line.  Copy it and save it for future reference.  ![refresh_token](https://services.google.com/fh/files/misc/refresh_token.png) *Do not copy the quotation marks*
+6. Finally, in the middle of the screen you'll see your refresh token on the last line. Copy it and save it for future reference. ![refresh_token](https://services.google.com/fh/files/misc/refresh_token.png) _Do not copy the quotation marks_
 
-
-## Save Credentials in a google-ads.yaml File 
+## Save Credentials in a google-ads.yaml File
 
 If you would like to save the credentials and in a google-ads.yaml file and download it to your PC, do the following:
 Copy the following command into the terminal, press enter and follow the instructions.
@@ -162,7 +145,6 @@ sh create_google_ads_yaml.sh
 ```
 
 Enter credentials one by one, and choose "Download" to download the file to your file system.
-
 
 ## Conclusion
 
