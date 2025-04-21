@@ -1,35 +1,34 @@
 # GCP OAuth Credentials Tutorial
 
-Welcome to a repository dedicated to guiding users through the process of creating OAuth credentials on the Google Cloud Platform (GCP). This is an essential step for clients working with various Google APIs.
+Welcome! This repository provides a guided walkthrough for creating OAuth 2.0 credentials on the Google Cloud Platform (GCP). Generating these credentials is a crucial step for applications and scripts that need to securely access Google APIs on behalf of users.
 
 ## Overview
 
-This repository contains a comprehensive, step-by-step tutorial that will help you navigate the process of generating OAuth credentials in the Google Cloud Platform.. These credentials are crucial for authenticating and authorizing access to Google services via APIs.
+This repository contains a comprehensive, step-by-step tutorial, directly in the Google Cloud Platform, designed to help you navigate the process of generating OAuth 2.0 credentials within GCP. These credentials are essential for authenticating and authorizing access to Google services via APIs.
 
 **Prerequisites**:
 
--Before you begin, ensure you have a Google Cloud account.
+Before starting the tutorial, please ensure you have the following:
 
-- Check with your solution developer which API's and scopes you need for the solution you plan to deploy.
+- **A Google Cloud Account:** You'll need an active account to follow the steps.
+- **Required APIs and Scopes:** Identify the specific Google APIs and authorization scopes needed for the solution you plan to deploy. You will need this information to enable the correct services and configure permissions during the process. Consult your solution's documentation or developer if unsure.
 
-## The Walkthrough Tutorial
+## Access the Tutorial
 
-**Click here to enter the**: [Step-by-Step OAuth Credentials Tutorial in GCP](https://console.cloud.google.com/?cloudshell=true&cloudshell_git_repo=https://github.com/google-marketing-solutions/credentials_creator_walkthrough&cloudshell_tutorial=walkthrough.md)
+Click the link below to launch the interactive tutorial directly in Google Cloud Shell:
 
-**Click here to enter the**: [Step-by-Step for installing 'Ads Placement Guardian (CPRv2)' solution](https://console.cloud.google.com/?cloudshell=true&cloudshell_git_repo=https://github.com/google-marketing-solutions/credentials_creator_walkthrough&cloudshell_tutorial=walkthrough_cprv2.md)
+**[Start the Step-by-Step OAuth Credentials Tutorial](https://console.cloud.google.com/?cloudshell=true&cloudshell_git_repo=https://github.com/google-marketing-solutions/credentials_creator_walkthrough&cloudshell_tutorial=walkthrough.md)**
 
-## What You'll Learn
+## What This Tutorial Covers
 
-The tutorial covers the following key topics:
+By completing this walkthrough, you will learn how to:
 
-- Setting up a project in GCP.
-
-- Enabling the required APIs for your project.
-
-- Creating an OAuth consent screen.
-
-- Generating OAuth 2.0 credentials (client id, client secret, and a refresh token).
+- Set up a new Google Cloud project.
+- Enable the necessary APIs required for your application within the project.
+- Configure the OAuth consent screen, which informs users what permissions your application is requesting.
+- Generate OAuth 2.0 credentials (Client ID, Client Secret, and Refresh Token).
+- Save the generated credentials securely into a dedicated `google-ads.yaml` file, ready for use in other applications or deployment scripts.
 
 ## Contact
 
-For any additional questions or feedback, feel free to contact [halelid@google.com](mailto:halelid@google.com).
+For questions, feedback, or issues related to this tutorial, please feel free to contact [halelid@google.com](mailto:halelid@google.com).
