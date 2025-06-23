@@ -60,6 +60,7 @@ fi
     echo "client_id: $client_id"
     echo "refresh_token: $refresh_token"
     echo "developer_token: $developer_token"
+    echo "use_proto_plus: True"
 } > google-ads.yaml
 
 echo "google-ads.yaml file has been created/updated."
